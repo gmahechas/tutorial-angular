@@ -1,0 +1,7 @@
+<form [formGroup]="formTwo" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="id" />
+  <input type="text" formControlName="todo" />
+  <button type="submit">Enviar</button>
+</form>
+{{ this.formTwo.value | json }}
+<p>{{ todo$ | async | json }}</p>
