@@ -1,0 +1,47 @@
+<app-panel-shared>
+  <div class="panel-header">
+    <app-translate-shared [strings]="['verbs.search.verb', 'person.plural']"></app-translate-shared>
+  </div>
+  <div class="panel-content">
+    <form [formGroup]="searchFormPerson" (ngSubmit)="onSubmit()">
+      <div class="p-grid p-nogutter">
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['person.model.person_id']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormPerson" [groupName]="'person'" [controlName]="'person_id'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['person.model.person_identification']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormPerson" [groupName]="'person'" [controlName]="'person_identification'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['person.model.person_name']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormPerson" [groupName]="'person'" [controlName]="'person_names'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <app-button-shared [type]="'submit'" [label]="['verbs.search.verb']" [disabled]="searchFormPerson.invalid"
+            [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.create.verb']" (click)="onCreate()" [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.clean.verb']" (click)="onReset()" [class]="'ui-button-secondary'"></app-button-shared>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-panel-shared>

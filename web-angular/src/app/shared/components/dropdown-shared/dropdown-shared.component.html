@@ -1,0 +1,47 @@
+<ng-container *ngIf="groupName; then withGroupName; else withoutGroupName"></ng-container>
+
+<ng-template #withGroupName>
+  <div [formGroup]="group">
+    <div [formGroupName]="groupName">
+      <p-dropdown [formControlName]="controlName" [options]="setOptions()" [optionLabel]="optionLabel" [filter]="filter"
+        [showClear]="(showClear) ? true : false" [dropdownIcon]="(dropdownIcon) ? dropdownIcon : 'pi pi-chevron-down'"
+        [placeholder]="(placeholder) ? (placeholder | myTranslate) : ''"
+        [filterPlaceholder]="(filterPlaceholder) ? (filterPlaceholder | myTranslate) : ''"
+        [emptyFilterMessage]="(emptyFilterMessage) ? (emptyFilterMessage | myTranslate) : ''" [autoDisplayFirst]="false"
+        [resetFilterOnHide]="true" [style]="{'width':'100%'}" (keyup)="onKeyUp($event)" (onChange)="onChange($event)">
+        <ng-template let-selectedItem pTemplate="selectedItem">
+          <span *ngFor="let option of options">
+            {{ selectedItem.value | fetchStringInArrayShared:option }}
+          </span>
+        </ng-template>
+        <ng-template let-item pTemplate="item">
+          <span *ngFor="let option of options">
+            {{ item.value | fetchStringInArrayShared:option }}
+          </span>
+        </ng-template>
+      </p-dropdown>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #withoutGroupName>
+  <div [formGroup]="group">
+    <p-dropdown [formControlName]="controlName" [options]="setOptions()" [optionLabel]="optionLabel" [filter]="filter"
+      [showClear]="(showClear) ? true : false" [dropdownIcon]="(dropdownIcon) ? dropdownIcon : 'pi pi-chevron-down'"
+      [placeholder]="(placeholder) ? (placeholder | myTranslate) : ''"
+      [filterPlaceholder]="(filterPlaceholder) ? (filterPlaceholder | myTranslate) : ''"
+      [emptyFilterMessage]="(emptyFilterMessage) ? (emptyFilterMessage | myTranslate) : ''" [autoDisplayFirst]="false"
+      [resetFilterOnHide]="true" [style]="{'width':'100%'}" (keyup)="onKeyUp($event)" (onChange)="onChange($event)">
+      <ng-template let-selectedItem pTemplate="selectedItem">
+        <span *ngFor="let option of options">
+          {{ selectedItem.value | fetchStringInArrayShared:option }}
+        </span>
+      </ng-template>
+      <ng-template let-item pTemplate="item">
+        <span *ngFor="let option of options">
+          {{ item.value | fetchStringInArrayShared:option }}
+        </span>
+      </ng-template>
+    </p-dropdown>
+  </div>
+</ng-template>

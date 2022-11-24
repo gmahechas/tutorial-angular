@@ -1,0 +1,58 @@
+<app-panel-shared>
+  <div class="panel-header">
+    <app-translate-shared [strings]="['verbs.search.verb', 'city.plural']"></app-translate-shared>
+  </div>
+  <div class="panel-content">
+    <form [formGroup]="searchFormCity" (ngSubmit)="onSubmit()">
+      <div class="p-grid p-nogutter">
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['city.model.city_id']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormCity" [groupName]="'city'" [controlName]="'city_id'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['city.model.city_name']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormCity" [groupName]="'city'" [controlName]="'city_name'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['city.model.city_code']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormCity" [groupName]="'city'" [controlName]="'city_code'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['estate.singular']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-dropdown-page-estate [group]="searchFormCity" [controlName]="'estate'" [options]="['estate_name']"
+                [optionLabel]="'estate_name'"></app-dropdown-page-estate>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <app-button-shared [type]="'submit'" [label]="['verbs.search.verb']" [disabled]="searchFormCity.invalid"
+            [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.create.verb']" (click)="onCreate()" [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.clean.verb']" (click)="onReset()" [class]="'ui-button-secondary'"></app-button-shared>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-panel-shared>

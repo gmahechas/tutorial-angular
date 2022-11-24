@@ -1,0 +1,15 @@
+<div class="layout-wrapper">
+  <div class="layout-header">
+    <app-header-core></app-header-core>
+  </div>
+  <div class="layout-content">
+    <app-message-core></app-message-core>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!-- Misc -->
+<app-progress-bar-core [progressBar]="progressBar$ | async"></app-progress-bar-core>
+<app-block-core [blockedDocument]="blockedDocument$ | async"></app-block-core>
+<app-spinner-core [showSpinner]="showSpinner$ | async"></app-spinner-core>
+<app-toast-core></app-toast-core>
+<app-confirm-core></app-confirm-core>

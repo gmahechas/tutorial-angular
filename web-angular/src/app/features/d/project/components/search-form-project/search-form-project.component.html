@@ -1,0 +1,48 @@
+<app-panel-shared>
+  <div class="panel-header">
+    <app-translate-shared [strings]="['verbs.search.verb', 'project.plural']"></app-translate-shared>
+  </div>
+  <div class="panel-content">
+    <form [formGroup]="searchFormProject" (ngSubmit)="onSubmit()">
+      <div class="p-grid p-nogutter">
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['project.model.project_id']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormProject" [groupName]="'project'" [controlName]="'project_id'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['project.model.project_name']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormProject" [groupName]="'project'" [controlName]="'project_name'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['macroproject.singular']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-dropdown-page-macroproject [group]="searchFormProject" [controlName]="'macroproject'" [options]="['macroproject_name']"
+                [optionLabel]="'macroproject_name'"></app-dropdown-page-macroproject>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <app-button-shared [type]="'submit'" [label]="['verbs.search.verb']" [disabled]="searchFormProject.invalid"
+            [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.create.verb']" (click)="onCreate()" [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.clean.verb']" (click)="onReset()" [class]="'ui-button-secondary'"></app-button-shared>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-panel-shared>

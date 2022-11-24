@@ -1,0 +1,21 @@
+<form [formGroup]="scheduleDayHourRangeForm" (ngSubmit)="onSubmit()">
+  <div class="p-grid p-nogutter">
+    <div class="p-col">
+      <app-dropdown-page-schedule-day [group]="scheduleDayHourRangeForm" [controlName]="'schedule_day'"
+        [options]="['day.day_name']" [optionLabel]="'day.day_name'"
+        [filter]="(entityLabel === 'schedule') ? false : true"
+        [onlyShow]="(entityLabel === 'schedule') ? 'form' : 'store_form'">
+      </app-dropdown-page-schedule-day>
+    </div>
+    <div class="p-col">
+      <app-dropdown-page-hour-range [group]="scheduleDayHourRangeForm" [controlName]="'hour_range'"
+        [options]="['hour_range_name', ' - ', 'hour_range_start', '/', 'hour_range_end']"
+        [optionLabel]="'hour_range_name'">
+      </app-dropdown-page-hour-range>
+    </div>
+    <div class="p-col">
+      <app-button-shared [type]="'submit'" [label]="['verbs.save.verb']" [class]="'ui-button-secondary'"
+        [disabled]="scheduleDayHourRangeForm.invalid || scheduleDayHourRangeForm.disabled"></app-button-shared>
+    </div>
+  </div>
+</form>

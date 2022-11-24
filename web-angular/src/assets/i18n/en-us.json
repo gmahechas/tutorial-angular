@@ -1,0 +1,245 @@
+{
+  "verbs": {
+    "search": {
+      "verb": "search"
+    },
+    "save": {
+      "verb": "save"
+    },
+    "create": {
+      "verb": "create"
+    },
+    "update": {
+      "verb": "update"
+    },
+    "edit": {
+      "verb": "edit"
+    },
+    "delete": {
+      "verb": "delete"
+    },
+    "cancel": {
+      "verb": "cancel"
+    },
+    "clean": {
+      "verb": "clean"
+    },
+    "change": {
+      "verb": "change"
+    },
+    "select": {
+      "verb": "select"
+    }
+  },
+  "nouns": {
+    "field": {
+      "singular": "field",
+      "plural": "fields"
+    },
+    "letter": {
+      "singular": "letter",
+      "plural": "letters"
+    },
+    "error": {
+      "singular": "error",
+      "plural": "errors"
+    }
+  },
+  "adjectives": {
+    "minimum": {
+      "singular": "minimum",
+      "plural": "minima"
+    },
+    "maximum": {
+      "singular": "maximum",
+      "plural": "maximum"
+    },
+    "required": {
+      "singular": "required",
+      "plural": "obligatory"
+    },
+    "invalid": {
+      "singular": "invalid",
+      "plural": "invalids"
+    }
+  },
+  "auth": {
+    "singIn": "sing in",
+    "singOut": "sing out",
+    "forgotPassword": "forgot your password",
+    "authenticationIncorrect": "the authentication data entered is incorrect",
+    "sessionExpired": "the session has expired"
+  },
+  "dashboard": {
+    "singular": "dashboard"
+  },
+  "config": {
+    "singular": "config"
+  },
+  "country": {
+    "singular": "country",
+    "plural": "countries",
+    "model": {
+      "country_id": "id",
+      "country_name": "country",
+      "country_code": "code"
+    }
+  },
+  "estate": {
+    "singular": "state",
+    "plural": "states",
+    "model": {
+      "estate_id": "id",
+      "estate_name": "state",
+      "estate_code": "code"
+    }
+  },
+  "city": {
+    "singular": "city",
+    "plural": "cities",
+    "model": {
+      "city_id": "id",
+      "city_name": "city",
+      "city_code": "code"
+    }
+  },
+  "company": {
+    "singular": "company",
+    "plural": "companies",
+    "model": {
+      "company_id": "id",
+      "company_name": "company"
+    }
+  },
+  "office": {
+    "singular": "office",
+    "plural": "offices",
+    "model": {
+      "office_id": "id",
+      "office_name": "office"
+    }
+  },
+  "department": {
+    "singular": "department",
+    "plural": "departments",
+    "model": {
+      "department_id": "id",
+      "department_name": "department",
+      "department_description": "description"
+    }
+  },
+  "type_person": {
+    "singular": "type of taxpayer",
+    "plural": "types of taxpayers",
+    "model": {
+      "type_person_id": "id",
+      "type_person_code": "code",
+      "type_person_description": "type of taxpayer"
+    }
+  },
+  "type_person_identification": {
+    "singular": "identification type",
+    "plural": "types of identifications",
+    "model": {
+      "type_person_identification_id": "id",
+      "type_person_identification_code": "code",
+      "type_person_identification_description": "identification type"
+    }
+  },
+  "person": {
+    "singular": "person",
+    "plural": "persons",
+    "model": {
+      "person_id": "id",
+      "person_identification": "identification",
+      "person_identification_date_issue": "identification issue date",
+      "person_first_name": "first name",
+      "person_second_name": "second name",
+      "person_first_surname": "first surname",
+      "person_second_surname": "second surname",
+      "person_legal_name": "legal name",
+      "person_address": "address",
+      "person_email": "email",
+      "person_phone": "phone",
+      "person_name": "name"
+    }
+  },
+  "profile": {
+    "singular": "profile",
+    "plural": "profiles",
+    "model": {
+      "profile_id": "id",
+      "profile_name": "profile"
+    }
+  },
+  "profile_menu": {
+    "singular": "permit",
+    "plural": "permits"
+  },
+  "user": {
+    "singular": "user",
+    "plural": "users",
+    "model": {
+      "user_id": "id",
+      "username": "username",
+      "password": "password"
+    }
+  },
+  "macroproject": {
+    "singular": "macroproject",
+    "plural": "macroprojects",
+    "model": {
+      "macroproject_id": "id",
+      "macroproject_name": "macroproject",
+      "macroproject_address": "address",
+      "macroproject_phone": "phone"
+    }
+  },
+  "project": {
+    "singular": "project",
+    "plural": "projects",
+    "model": {
+      "project_id": "id",
+      "project_name": "project",
+      "project_address": "address",
+      "project_phone": "phone"
+    }
+  },
+  "workflow": {
+    "singular": "workflow",
+    "plural": "workflows",
+    "model": {
+      "workflow_id": "id",
+      "workflow_name": "flow",
+      "workflow_description": "description"
+    }
+  },
+  "day": {
+    "singular": "day",
+    "plural": "days",
+    "model": {
+      "day_id": "id",
+      "day_code": "code",
+      "day_name": "day"
+    }
+  },
+  "schedule": {
+    "singular": "schedule",
+    "plural": "schedules",
+    "model": {
+      "schedule_id": "id",
+      "schedule_name": "schedule"
+    }
+  },
+  "hour_range": {
+    "singular": "hour range",
+    "plural": "ranges of hours",
+    "model": {
+      "hour_range_id": "id",
+      "hour_range_name": "name",
+      "hour_range_description": "description",
+      "hour_range_start": "start time",
+      "hour_range_end": "end time"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<app-panel-shared>
+  <div class="panel-header">
+    <app-translate-shared [strings]="['verbs.search.verb', 'user.plural']"></app-translate-shared>
+  </div>
+  <div class="panel-content">
+    <form [formGroup]="searchFormUser" (ngSubmit)="onSubmit()">
+      <div class="p-grid p-nogutter">
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['user.model.user_id']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormUser" [groupName]="'user'" [controlName]="'user_id'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['user.model.username']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-input-text-shared [group]="searchFormUser" [groupName]="'user'" [controlName]="'username'"></app-input-text-shared>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['person.singular']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-dropdown-page-person [group]="searchFormUser" [controlName]="'person'" [options]="['person_first_name', 'person_second_name']"
+                [optionLabel]="'person_identification'"></app-dropdown-page-person>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <div class="p-grid p-nogutter">
+            <div class="p-col">
+              <app-translate-shared [strings]="['profile.singular']"></app-translate-shared>
+            </div>
+            <div class="p-col">
+              <app-dropdown-page-profile [group]="searchFormUser" [controlName]="'profile'" [options]="['profile_name']"
+                [optionLabel]="'profile_name'"></app-dropdown-page-profile>
+            </div>
+          </div>
+        </div>
+        <div class="p-col">
+          <app-button-shared [type]="'submit'" [label]="['verbs.search.verb']" [disabled]="searchFormUser.invalid"
+            [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.create.verb']" (click)="onCreate()" [class]="'ui-button-secondary'"></app-button-shared>
+          <app-button-shared [type]="'button'" [label]="['verbs.clean.verb']" (click)="onReset()" [class]="'ui-button-secondary'"></app-button-shared>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-panel-shared>
