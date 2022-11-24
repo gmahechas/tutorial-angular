@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "MavatecModels",
+  "title": "Mavatec Models",
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "default": []
+    }
+  },
+  "required": [
+    "path",
+    "name"
+  ]
+}
