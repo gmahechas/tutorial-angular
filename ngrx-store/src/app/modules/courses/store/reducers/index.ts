@@ -15,3 +15,5 @@ export function reducers(state: CoursesState | undefined, action: Action) {
 		entity: fromEntity.reducer
 	})(state, action);
 }
+
+export const getCoursesState = createFeatureSelector<CoursesState>('courses');

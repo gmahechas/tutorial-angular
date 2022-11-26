@@ -19,4 +19,8 @@ export class CoursesService {
       map(res => res['payload']),
     );
   }
+
+  loadCourseById(courseId: number) {
+    return this.http.get<Course>(`/api/courses/${courseId}`);
+  }  
 }

@@ -1,6 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { CoursesState } from '../reducers';
-import { adapter, getCoursesState } from '../reducers/entity.reducer';
+import { getCoursesState } from '../reducers';
+import { adapter } from '../reducers/entity.reducer';
 
 export const getEntityState = createSelector(
 	getCoursesState,

@@ -32,3 +32,8 @@ export const StoreFailEntity = createAction(
 	`[${actionPrefix}] store fail entity`,
 	props<{ error: any }>()
 );
+
+export const SelectCourse = createAction(
+	`[${actionPrefix}] select course`,
+	props<{ entity: Course }>()
+);

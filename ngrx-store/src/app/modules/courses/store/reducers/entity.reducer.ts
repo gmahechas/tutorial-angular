@@ -23,5 +23,3 @@ export const reducer = createReducer(
 	initialState,
 	on(coursesActions.entityActions.LoadSuccessEntity, (state, { entities }) => adapter.addMany(entities, state)),
 );
-
-export const getCoursesState = createFeatureSelector<CoursesState>('courses');
