@@ -21,44 +21,42 @@ export class CourseExistGuard implements CanActivate {
 
   hasCourseInStore(id: string): Observable<boolean> {
     return this.store.select(fromCoursesReducers.selectCoursesEntities).pipe(
-      map((entities) => !!entities[id]),
+      map((entities) => {
+        const entity = entities[id];
+        if (!entity) {
+          return false;
+        }
+        this.store.dispatch(entityActions.SelectCourse({ entity }));
+        return true;
+      }),
       take(1)
     );
   }
 
   hasCourseInApi(id: string): Observable<boolean> {
     return this.coursesService.loadCourseById(parseInt(id)).pipe(
-      switchMap((course) => {
-        if(!course) {
-          this.store.dispatch(RouterActions.Go({ path: ['courses'] }))
-          return of(false);
+      map((course) => {
+        if (!course) {
+          this.store.dispatch(RouterActions.Go({ path: ['courses'] }));
+          return false;
         }
         this.store.dispatch(entityActions.SelectCourse({ entity: course }));
+        return true;
       }),
       catchError(() => {
         this.store.dispatch(RouterActions.Go({ path: ['home'] }))
-        return of(false); 
-      })
-    )
-/*     return this.googleBooks.retrieveBook(id).pipe(
-      map((bookEntity) => BookActions.loadBook({ book: bookEntity })),
-      tap((action) => this.store.dispatch(action)),
-      map((book) => !!book),
-      catchError(() => {
-        this.router.navigate(['/404']);
         return of(false);
       })
-    ); */
+    )
   }
 
   hasCourse(id: string): Observable<boolean> {
     return this.hasCourseInStore(id).pipe(
       switchMap((inStore) => {
         if (inStore) {
-          return of(inStore)
+          return of(inStore);
         }
         return this.hasCourseInApi(id);
-        
       })
     );
   }

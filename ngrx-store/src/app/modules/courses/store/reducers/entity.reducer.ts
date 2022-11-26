@@ -6,7 +6,7 @@ import * as coursesActions from './../actions'
 import { Course } from '../../models/course.model';
 
 export interface State extends EntityState<Course> {
-	selectedCourseId: string | null;
+	selectedCourse: Course | null;
 }
 
 export const adapter: EntityAdapter<Course> = createEntityAdapter<Course>({
@@ -15,10 +15,11 @@ export const adapter: EntityAdapter<Course> = createEntityAdapter<Course>({
 });
 
 export const initialState: State = adapter.getInitialState({
-	selectedCourseId: null,
+	selectedCourse: null,
 });
 
 export const reducer = createReducer(
 	initialState,
 	on(coursesActions.entityActions.LoadSuccessEntity, (state, { entities }) => adapter.addMany(entities, state)),
+	on(coursesActions.entityActions.SelectCourse, (state, { entity }) => ({ ...state, selectedCourse: entity }))
 );
