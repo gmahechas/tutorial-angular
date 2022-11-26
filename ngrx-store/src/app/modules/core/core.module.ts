@@ -1,21 +1,27 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { ROOT_REDUCERS, metaReducers } from './store/reducers';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { SharedModule } from '../../shared/shared.module';
 import { environment } from '../../../environments/environment';
 
 import { efffects } from './store/effects';
+import { IndexCoreComponent } from './containers/index-core/index-core.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    IndexCoreComponent
+  ],
   imports: [
     HttpClientModule,
+    RouterModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       metaReducers,
       runtimeChecks: {

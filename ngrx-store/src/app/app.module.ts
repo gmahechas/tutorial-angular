@@ -2,18 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './modules/core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+import { IndexCoreComponent } from './modules/core/containers/index-core/index-core.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   providers: [
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [IndexCoreComponent],
   entryComponents: []
 })
 export class AppModule {
