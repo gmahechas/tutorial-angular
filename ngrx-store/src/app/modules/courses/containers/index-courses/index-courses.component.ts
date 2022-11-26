@@ -8,6 +8,8 @@ import { entityActions } from '../../store/actions';
 import { Course } from '../../models/course.model';
 import { RouterActions } from '../../../../modules/core/store/actions';
 
+import { getCoursesState } from '../../store/reducers';
+
 @Component({
   selector: 'index-courses',
   templateUrl: './index-courses.component.html',
@@ -19,18 +21,19 @@ export class IndexCoursesComponent implements OnInit {
   beginnerCourses$: Observable<Course[]>;
   advancedCourses$: Observable<Course[]>;
 
+  data$: Observable<any>;
+
   constructor(
     private store: Store
   ) { }
 
   ngOnInit(): void {
     this.store.dispatch(entityActions.LoadEntity({ search: '' }));
-    const data$ = this.store.select(selectAllCourses);
 
+    const data$ = this.store.select(selectAllCourses);
     this.beginnerCourses$ = data$.pipe(
       map(courses => courses.filter(course => course.category == 'BEGINNER'))
     );
-
     this.advancedCourses$ = data$.pipe(
       map(courses => courses.filter(course => course.category == 'ADVANCED'))
     );
