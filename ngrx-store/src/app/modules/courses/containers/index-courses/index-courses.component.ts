@@ -8,8 +8,6 @@ import { entityActions } from '../../store/actions';
 import { Course } from '../../models/course.model';
 import { RouterActions } from '../../../../modules/core/store/actions';
 
-import { getCoursesState } from '../../store/reducers';
-
 @Component({
   selector: 'index-courses',
   templateUrl: './index-courses.component.html',
@@ -17,11 +15,8 @@ import { getCoursesState } from '../../store/reducers';
 })
 export class IndexCoursesComponent implements OnInit {
 
-
   beginnerCourses$: Observable<Course[]>;
   advancedCourses$: Observable<Course[]>;
-
-  data$: Observable<any>;
 
   constructor(
     private store: Store

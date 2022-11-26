@@ -1,4 +1,4 @@
-import { combineReducers, Action, createFeatureSelector } from '@ngrx/store';
+import { combineReducers, Action, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromEntity from './entity.reducer';
 import * as fromSearch from './search.reducer';
 import * as fromCore from '../../../core/store/reducers';
@@ -19,4 +19,6 @@ export function reducers(state: CoursesState | undefined, action: Action) {
 	})(state, action);
 }
 
-export const getCoursesState = createFeatureSelector<CoursesState>('courses');
+export const coursesState = createFeatureSelector<CoursesState>('courses');
+export const coursesEntity = createSelector(coursesState,(state) => state.entity);
+export const coursesSearch = createSelector(coursesState,(state) => state.search);
