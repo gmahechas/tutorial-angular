@@ -1,0 +1,5 @@
+<button (click)="justForTest()">Vaca</button>
+<div class="messages-container">
+	<app-messages-list class="messages-container-item" [messageList]="messages" [currentMessage]="currentMessage" (clickOnMessage)="clickOnMessage($event)"></app-messages-list>
+	<app-messages-chat class="messages-container-item"></app-messages-chat>
+</div>

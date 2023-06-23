@@ -1,0 +1,6 @@
+<ng-container *ngFor="let message of messageList">
+	<mat-card (click)="onClick(message)">
+		<mat-card-title *ngIf="currentMessage && currentMessage.id == message.id">selected :)</mat-card-title>
+		<mat-card-content>{{ message.title }}</mat-card-content>
+	</mat-card>
+</ng-container>

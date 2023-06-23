@@ -1,0 +1,8 @@
+<p>about-container works!</p>
+<mat-form-field >
+	<mat-label>Email</mat-label>
+	<input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+	<mat-error *ngIf="true">
+		Please enter a valid email address
+	</mat-error>
+</mat-form-field>

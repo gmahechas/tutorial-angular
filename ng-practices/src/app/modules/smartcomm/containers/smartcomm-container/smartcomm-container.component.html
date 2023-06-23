@@ -1,0 +1,7 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+	<a mat-tab-link (click)="navigateTo('smartcomm/messages')">Messages</a>
+	<a mat-tab-link (click)="navigateTo('smartcomm/calls')">Calls</a>
+	<a mat-tab-link (click)="navigateTo('smartcomm/contacts')">Contacts</a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<router-outlet></router-outlet>
