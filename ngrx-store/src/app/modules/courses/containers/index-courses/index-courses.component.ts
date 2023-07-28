@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { selectAllCourses } from '../../store/selectors';
-import { entityActions } from '../../store/actions';
+import { entityActions, uiActions } from '../../store/actions';
 import { Course } from '../../models/course.model';
 import { RouterActions } from '../../../../modules/core/store/actions';
+import { getTabSelected } from '../../store/selectors/ui.selectors';
 
 @Component({
   selector: 'index-courses',
@@ -17,6 +18,7 @@ export class IndexCoursesComponent implements OnInit {
 
   beginnerCourses$: Observable<Course[]>;
   advancedCourses$: Observable<Course[]>;
+  tabSelected$: Observable<number> = this.store.select(getTabSelected);
 
   constructor(
     private store: Store
@@ -24,7 +26,6 @@ export class IndexCoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(entityActions.LoadEntity({ search: '' }));
-
     const data$ = this.store.select(selectAllCourses);
     this.beginnerCourses$ = data$.pipe(
       map(courses => courses.filter(course => course.category == 'BEGINNER'))
@@ -36,6 +37,10 @@ export class IndexCoursesComponent implements OnInit {
 
   viewCourse(course: Course) {
     this.store.dispatch(RouterActions.Go({ path: ['/courses', course.id] }))
+  }
+
+  tabChange(tab: number) {
+    this.store.dispatch(uiActions.ChangeTab({ toogle: tab }));
   }
 
 }
